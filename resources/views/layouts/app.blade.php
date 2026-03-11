@@ -12,7 +12,7 @@
     <link rel="apple-touch-icon" href="{{ asset('assets/images/Tata-Pravesh-Favicon.png')}}" />
     {{-- Favicon --}}
     
-    <link rel="stylesheet" href="{{ asset('assets/scss/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
     <script src="{{ asset('assets/js/app.js') }}"></script>
 
     <link rel="stylesheet" href="{{ asset('assets/fonts/stylesheet.css')}}" media="all">
