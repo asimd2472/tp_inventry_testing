@@ -1,30 +1,14 @@
-import './bootstrap';
+$(document).ready(function () {
 
-// validation plugin must be imported before any scripts that call .validate()
-import 'jquery-validation/dist/jquery.validate.min.js';
-import 'jquery-validation/dist/additional-methods.min.js';
+    // flatpickr
+    flatpickr(".date-picker");
 
-import './custom';
-import './common';
-import './paralax';
+    // select2
+    $('.select2').select2();
 
-import.meta.glob([
-    '../images/**',
-    '../fonts/**',
-]);
+    // datatable
+    $('#table').DataTable();
 
-// Date range Picker
-import flatpckr from 'flatpickr';
-window.flatpckr = flatpckr;
-import 'flatpickr/dist/flatpickr.min.css';
+    console.log("App Loaded");
 
-import 'datatables.net-bs5';
-
-// import './signature';
-
-
-
-
-
-
-
+});

@@ -291,7 +291,7 @@ $(function() {
         $('.loader-wrap').show();
 
         // Load user types first
-        $.post('/user/inventory/user-types', {
+        $.post(base_url + '/user/inventory/user-types', {
             _token: $('meta[name="csrf-token"]').attr('content'),
             type: $(this).val()
         }, function (data) {
@@ -306,7 +306,7 @@ $(function() {
         });
 
         // Load models
-        $.post('/user/inventory/models', {
+        $.post(base_url + '/user/inventory/models', {
             _token: $('meta[name="csrf-token"]').attr('content'),
             type: $(this).val()
         }, function (data) {
@@ -356,7 +356,7 @@ $(function() {
 
         $('.loader-wrap').show();
 
-        $.post('/user/inventory/designs', {
+        $.post(base_url + '/user/inventory/designs', {
             _token: $('meta[name="csrf-token"]').attr('content'),
             type: $('#type').val(),
             model: $(this).val()
@@ -399,7 +399,7 @@ $(function() {
 
         $('.loader-wrap').show();
 
-        $.post('/user/inventory/dimention', {
+        $.post(base_url + '/user/inventory/dimention', {
             _token: $('meta[name="csrf-token"]').attr('content'),
             type: $('#type').val(),
             model: $('#model').val(),
@@ -427,7 +427,7 @@ $(function() {
 
         $('.loader-wrap').show();
 
-        $.post('/user/inventory/colour', {
+        $.post(base_url + '/user/inventory/colour', {
             _token: $('meta[name="csrf-token"]').attr('content'),
             type: $('#type').val(),
             model: $('#model').val(),
@@ -457,7 +457,7 @@ $(function() {
 
         $('.loader-wrap').show();
 
-        $.post('/user/inventory/orientation', {
+        $.post(base_url + '/user/inventory/orientation', {
             _token: $('meta[name="csrf-token"]').attr('content'),
             type: $('#type').val(),
             model: $('#model').val(),
@@ -489,7 +489,7 @@ $(function() {
 
         $('.loader-wrap').show();
 
-        $.post('/user/inventory/special_feature', {
+        $.post(base_url + '/user/inventory/special_feature', {
             _token: $('meta[name="csrf-token"]').attr('content'),
             type: $('#type').val(),
             model: $('#model').val(),
@@ -530,7 +530,7 @@ $(function() {
 
         $('.loader-wrap').show();
 
-        $.post('/user/inventory/stock', {
+        $.post(base_url + '/user/inventory/stock', {
             _token: $('meta[name="csrf-token"]').attr('content'),
             type: $('#type').val(),
             model: $('#model').val(),
@@ -646,6 +646,7 @@ window.inventorySend = function(){
         type: 'POST',
         data: {
             'id': "asd007",
+            _token: $('meta[name="csrf-token"]').attr('content'),
         },
         beforeSend: function() {
             $('.loader-wrap').show();
@@ -675,6 +676,7 @@ window.inventoryItemCount = function(){
         url: base_url + '/user/inventory-item-check',
         type: 'POST',
         data: {
+            _token: $('meta[name="csrf-token"]').attr('content'),
             type: $('#type').val(),
             model: $('#model').val(),
             design: $('#design').val(),

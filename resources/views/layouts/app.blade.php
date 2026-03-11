@@ -1,21 +1,34 @@
 <!doctype html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Home</title>
-    <!-- <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/images/logo.png')}}"> -->
-    <link rel="icon" href="{{ asset('assets/images/Tata-Pravesh-Favicon.png')}}" sizes="32x32" />
-    <link rel="icon" href="{{ asset('assets/images/Tata-Pravesh-Favicon.png')}}" sizes="192x192" />
-    <link rel="apple-touch-icon" href="{{ asset('assets/images/Tata-Pravesh-Favicon.png')}}" />
-    {{-- Favicon --}}
-    
-    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
-    <script src="{{ asset('assets/js/app.js') }}"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <link rel="stylesheet" href="{{ asset('assets/fonts/stylesheet.css')}}" media="all">
+<title>Home</title>
+
+<link rel="icon" href="{{ asset('assets/images/Tata-Pravesh-Favicon.png')}}" sizes="32x32" />
+
+<!-- ================= CSS ================= -->
+
+<!-- Bootstrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Select2 -->
+<link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet"/>
+
+<!-- DataTables -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/datatables.net-bs5/css/dataTables.bootstrap5.min.css">
+
+<!-- Flatpickr -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
+<!-- intlTelInput -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@18.5.6/build/css/intlTelInput.css">
+
+<!-- Custom CSS -->
+<link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/fonts/stylesheet.css') }}">
 
 </head>
 
@@ -38,51 +51,97 @@
         </div>
     </div>
 
+@include('admin.includes.header')
 
-    <div class="loader-container-pdf-data-wrap" id="loader-container-pdf-data-wrap" style="display:none;">
-        <div class="loader-container-pdf-data" id="loader-pdf-data">
-            <div class="loader-text-pdf-data">Cargando...</div>
-            <div class="progress-bar-pdf-data">
-              <div class="progress-fill-pdf-data" id="progress-pdf-data"></div>
-            </div>
-            <div class="progress-desc-pdf-data">
-              Analizando PDF para extraer todos los datos, en pocos segundos lo tienes.
-            </div>
-        </div>
-    </div>
+@yield('content')
 
-    @include('admin.includes.header')
-        @yield('content')
-    @include('admin.includes.footer_user')
+@include('admin.includes.footer_user')
 
-    @stack('scripts')
-    <script>
-        var base_url = '{{url('/')}}';
-    </script>
-    <script type="module">
-        var input = document.querySelector("#phone_prifix");
-        window.intlTelInput(input, {
-            separateDialCode: true,
-            initialCountry: "ES",
-        });
-        var iti = window.intlTelInputGlobals.getInstance(input);
+<!-- ================= JS ================= -->
+
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+<!-- Lodash -->
+<script src="https://cdn.jsdelivr.net/npm/lodash/lodash.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Select2 -->
+<script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
+
+<!-- DataTables -->
+<script src="https://cdn.jsdelivr.net/npm/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/datatables.net-bs5/js/dataTables.bootstrap5.min.js"></script>
+
+<!-- Flatpickr -->
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+<!-- SweetAlert -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<!-- Axios -->
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+<!-- jQuery Validation -->
+<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/additional-methods.min.js"></script>
+
+<!-- intlTelInput -->
+<script src="https://cdn.jsdelivr.net/npm/intl-tel-input@18.5.6/build/js/intlTelInput.min.js"></script>
+
+<!-- ================= Custom JS ================= -->
+
+<script src="{{ asset('assets/js/app.js') }}"></script>
+<script src="{{ asset('assets/js/custom.js') }}"></script>
+<script src="{{ asset('assets/js/common.js') }}"></script>
+
+<script>
+var base_url = "{{ url('/') }}";
+</script>
+
+<script>
+
+$(document).ready(function(){
+
+    // Select2
+    $('.select2').select2();
+
+    // DataTable
+    $('.datatable').DataTable();
+
+    // Flatpickr
+    $(".date-picker").flatpickr();
+
+});
+
+</script>
+
+<script>
+
+var input = document.querySelector("#phone_prifix");
+
+if(input){
+
+    var iti = window.intlTelInput(input,{
+        separateDialCode:true,
+        initialCountry:"es"
+    });
+
+    $('#dialCode').val(iti.getSelectedCountryData().dialCode);
+
+    input.addEventListener("countrychange",function(){
         $('#dialCode').val(iti.getSelectedCountryData().dialCode);
-        input.addEventListener("countrychange", function() {
-            $('#dialCode').val(iti.getSelectedCountryData().dialCode);
-        });
+    });
 
-        // window.lang_select = function() {
-        //     $(".account-login").slideToggle();
-        // }
-        document.addEventListener('click', function (e) {
-            var container = document.querySelector('.account_name');
-            if (!container.contains(e.target)) {
-                $(".account-login").slideUp();
-            }
-            e.stopPropagation();
-        });
-    </script>
-    <meta name="csrf-token" content="{{ csrf_token() }}" />
+}
+
+</script>
+
+<meta name="csrf-token" content="{{ csrf_token() }}">
+
+@stack('scripts')
+
 </body>
-
 </html>
