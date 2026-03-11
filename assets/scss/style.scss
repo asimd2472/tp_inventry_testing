@@ -1,8 +1,14 @@
 @import 'bootstrap';
-@import "datatables.net-bs5/css/dataTables.bootstrap5.min.css";
-@import "datatables.net-buttons-bs5/css/buttons.bootstrap5.min.css";
-@import 'datatables.net-select-bs5/css/select.bootstrap5.css';
-@import "/node_modules/select2/dist/css/select2.css";
+
+// Datatables
+@import "../vendor/datatables/datatables.net-bs5/css/dataTables.bootstrap5.min.css";
+@import "../vendor/datatables/datatables.net-buttons-bs5/css/buttons.bootstrap5.min.css";
+@import "../vendor/datatables/datatables.net-select-bs5/css/select.bootstrap5.css";
+
+// Select2
+@import "../vendor/select2/select2.css";
+
+// Theme files
 @import 'all';
 @import 'variable';
 @import 'mixin';
@@ -16,7 +22,5 @@
 @import 'content';
 @import 'faq';
 @import 'responsive';
-
-// For watch sass --watch styles/scss/style.scss:styles/scss/style.css
 
 
