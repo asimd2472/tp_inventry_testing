@@ -12,19 +12,16 @@
 <!-- ================= CSS ================= -->
 
 <!-- Bootstrap -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="{{ asset('assets/css/bootstrap.min.css')}}" rel="stylesheet">
 
 <!-- Select2 -->
-<link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet"/>
+<link href="{{ asset('assets/css/select2.min.css')}}" rel="stylesheet"/>
 
 <!-- DataTables -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/datatables.net-bs5/css/dataTables.bootstrap5.min.css">
+<link rel="stylesheet" href="{{ asset('assets/css/dataTables.bootstrap5.min.css')}}">
 
 <!-- Flatpickr -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-
-<!-- intlTelInput -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@18.5.6/build/css/intlTelInput.css">
+{{-- <link rel="stylesheet" href="{{ asset('assets/css/flatpickr.min.css')}}"> --}}
 
 <!-- Custom CSS -->
 <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
@@ -60,40 +57,38 @@
 <!-- ================= JS ================= -->
 
 <!-- jQuery -->
-<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="{{asset('assets/js/jquery-3.7.1.min.js')}}"></script>
 
 <!-- Lodash -->
-<script src="https://cdn.jsdelivr.net/npm/lodash/lodash.min.js"></script>
+<script src="{{asset('assets/js/lodash.min.js')}}"></script>
 
 <!-- Bootstrap -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="{{asset('assets/js/bootstrap.bundle.min.js')}}"></script>
 
 <!-- Select2 -->
-<script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
+<script src="{{asset('assets/js/select2.min.js')}}"></script>
 
 <!-- DataTables -->
-<script src="https://cdn.jsdelivr.net/npm/datatables.net/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/datatables.net-bs5/js/dataTables.bootstrap5.min.js"></script>
+<script src="{{asset('assets/js/jquery.dataTables.min.js')}}"></script>
+<script src="{{asset('assets/js/dataTables.bootstrap5.min.js')}}"></script>
 
 <!-- Flatpickr -->
-<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script src="{{asset('assets/js/flatpickr.js')}}"></script>
 
 <!-- SweetAlert -->
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="{{asset('assets/js/sweetalert2@11.js')}}"></script>
 
 <!-- Axios -->
-<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+{{-- <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script> --}}
 
 <!-- jQuery Validation -->
-<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/additional-methods.min.js"></script>
+<script src="{{asset('assets/js/jquery.validate.min.js')}}"></script>
+<script src="{{asset('assets/js/additional-methods.min.js')}}"></script>
 
-<!-- intlTelInput -->
-<script src="https://cdn.jsdelivr.net/npm/intl-tel-input@18.5.6/build/js/intlTelInput.min.js"></script>
 
 <!-- ================= Custom JS ================= -->
 
-<script src="{{ asset('assets/js/app.js') }}"></script>
+{{-- <script src="{{ asset('assets/js/app.js') }}"></script> --}}
 <script src="{{ asset('assets/js/custom.js') }}"></script>
 <script src="{{ asset('assets/js/common.js') }}"></script>
 
